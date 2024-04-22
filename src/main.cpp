@@ -37,8 +37,8 @@ void opcontrol() {
 
 		/* Calibrate the IMU and chassis when UP is pressed */
 		if(controller.get_digital_new_press(DIGITAL_UP)){
-			chassis.calibrate();
 			controller.print(2,0,"Calibrating");
+			chassis.calibrate();
 		}
 
 		/* Run the currently selected autonomous (or skills) when B is pressed */
