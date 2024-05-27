@@ -1,31 +1,28 @@
 /* Noah Klein */
 
+#include "lemlib/api.hpp"
 #include "include.hpp"
 
 uint8_t autonIndex = AUTO_COUNT;
 
 /* Define the controller */
-pros::Controller controller(CONTROLLER_MASTER);
+pros::Controller controller(E_CONTROLLER_MASTER);
 
 /* Define drive motors and motor groups */
-pros::Motor frontLeft(12, true);
-pros::Motor midLeft(13, false);
-pros::Motor backLeft(11, true);
-pros::MotorGroup leftDtMotors({19, 18, 20});
+pros::Motor frontLeft(3);
+pros::Motor backLeft(2);
+pros::MotorGroup leftDtMotors({2, 3});
 
-pros::Motor frontRight(19 ,false);
-pros::Motor midRight(18, true);
-pros::Motor backRight(20, false);
-pros::MotorGroup rightDtMotors({19, 18, 20});
+pros::Motor frontRight(-9);
+pros::Motor backRight(-10);
+pros::MotorGroup rightDtMotors({-9, -10});
 
 /* Declare other motors */
-pros::Motor lift(1, true);
-pros::Motor conveyor(14, false);
 
 /* Define V5 sensors */
-pros::Rotation rightEncoder(10);
-pros::Rotation backEncoder(9);
-pros::Imu imu(2);
+pros::Rotation rightEncoder(11);
+pros::Rotation backEncoder(12);
+pros::Imu imu(5);
 
 
 /* Define LemLib objects */
