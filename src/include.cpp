@@ -22,7 +22,8 @@ pros::MotorGroup rightDtMotors({-9, -10});
 /* Define V5 sensors */
 pros::Rotation rightEncoder(11);
 pros::Rotation backEncoder(12);
-pros::Imu imu(5);
+pros::Imu imu1(6);
+pros::Imu imu2(5);
 
 
 /* Define LemLib objects */
@@ -39,7 +40,7 @@ lemlib::TrackingWheel rightTrackingWheel(&rightEncoder, lemlib::Omniwheel::OLD_2
 lemlib::TrackingWheel backTrackingWheel(&backEncoder, lemlib::Omniwheel::OLD_275, -4.5);
 
                         /*  Vertical tracking wheels      Horizontal tracking wheels   IMU */
-lemlib::OdomSensors sensors(&rightTrackingWheel, nullptr, &backTrackingWheel, nullptr, &imu);
+lemlib::OdomSensors sensors(&rightTrackingWheel, nullptr, &backTrackingWheel, nullptr, &imu1);
 
 
 lemlib::ControllerSettings linearController(

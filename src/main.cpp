@@ -4,9 +4,11 @@
 #include "robotFunctions.hpp"
 #include "main.h"
 
+double oldR1;
 
 void initialize() {
 	chassis.calibrate();
+	oldR1 = imu1.get_rotation();
 }
 
 
@@ -18,6 +20,9 @@ void competition_initialize() {}
 
 void autonomous() {}
 
+int counter = 0;
+double emah = 0;
+double corrected = 0;
 
 void opcontrol() {
     while (true) {
@@ -49,6 +54,22 @@ void opcontrol() {
 				autonomous();
 			#endif
 		}
+
+		const int n = 10;
+		const double kR = 1.0095;
+
+		const double r1 = imu1.get_rotation();
+
+		const double rotationDelta = r1 - oldR1;
+		oldR1 = r1;
+
+		corrected += rotationDelta * kR;
+
+		emah = (emah * (n - 1) + r1) / n;
+
+
+		if(counter%5 == 0) std::cout << "Rotation: " << r1 << " \tCorrected: " << corrected << "\tDelta Rotation: " << rotationDelta << "\n";
+		counter++;
 
         pros::delay(20);
     }

@@ -6,5 +6,5 @@
 
 /* Print the currently selected auto, and some other information, to the controller */
 void controllerPrintAuto(){
-	controller.print(2, 0, "%s, %.2f            ", autos[autonIndex%AUTO_COUNT].autoName, imu.get_heading());
+	controller.print(2, 0, "%s, %.2f            ", autos[autonIndex%AUTO_COUNT].autoName, imu1.get_heading());
 }

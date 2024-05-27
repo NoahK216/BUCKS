@@ -40,7 +40,8 @@ extern pros::MotorGroup leftDtMotors;
 /* Declare V5 sensors */
 extern pros::Rotation rightEncoder;
 extern pros::Rotation backEncoder;
-extern pros::Imu imu;
+extern pros::Imu imu1;
+extern pros::Imu imu2;
 
 /* Define LemLib objects */
 extern lemlib::Drivetrain drivetrain;
